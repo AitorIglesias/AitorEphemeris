@@ -217,7 +217,7 @@ function get_table_from_file(
     ci = CoefficientsInfo(
         coeffs_info_vec[index]["bodyID"],
         coeffs_info_vec[index]["bodyName"],
-        (iEnd-i0)+1,
+        (iEnd-i0),
         coeffs_info_vec[index]["numberOfCoeffs"],
         coeffs_info_vec[index]["timeIntervals"][i0:iEnd])
     

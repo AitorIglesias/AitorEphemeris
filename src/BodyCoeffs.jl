@@ -78,7 +78,7 @@ function BodyCoeffs(info_file_path::String, file_path::String, body::Union{Int, 
             end
         end
     end
-    
+
     # Creamos el objeto
     bc = BodyCoeffs{Float64}(
         coeffs_info.bodyID,
@@ -114,8 +114,8 @@ Metodo del objeto que permite calcular las coordenadas y/o las velocidades del c
 function (body_coeffs::BodyCoeffs)(t::Float64, code=3::Int)
 
     # Índice del polinomo
-    index = findlast(x -> x <= t, boddy_coeffs.timeIntervals)
-    tspan = (boddy_coeffs.timeIntervals[index], boddy_coeffs.timeIntervals[index+1])
+    index = findlast(x -> x <= t, body_coeffs.timeIntervals)
+    tspan = (body_coeffs.timeIntervals[index], body_coeffs.timeIntervals[index+1])
 
     # Vector  resultado
     len = 0
@@ -125,17 +125,17 @@ function (body_coeffs::BodyCoeffs)(t::Float64, code=3::Int)
     i = 0
     # Evaluamos los coeficientes de las coordenadas
     if code != 2
-        res[i+1] = ChebyshevEval(boddy_coeffs.x_coeffs[index], t, tspan)
-        res[i+2] = ChebyshevEval(boddy_coeffs.y_coeffs[index], t, tspan)
-        res[i+3] = ChebyshevEval(boddy_coeffs.z_coeffs[index], t, tspan)
+        res[i+1] = ChebyshevEval(body_coeffs.x_coeffs[index,:], t, tspan)
+        res[i+2] = ChebyshevEval(body_coeffs.y_coeffs[index,:], t, tspan)
+        res[i+3] = ChebyshevEval(body_coeffs.z_coeffs[index,:], t, tspan)
         i = 3
     end
 
     # Evaluamos los coeficientes de las velocidades
     if code != 1
-        res[i+1] = ChebyshevEval(boddy_coeffs.x_coeffs[index], t, tspan)
-        res[i+2] = ChebyshevEval(boddy_coeffs.y_coeffs[index], t, tspan)
-        res[i+3] = ChebyshevEval(boddy_coeffs.z_coeffs[index], t, tspan)
+        res[i+1] = ChebyshevEval(body_coeffs.vx_coeffs[index,:], t, tspan)
+        res[i+2] = ChebyshevEval(body_coeffs.vy_coeffs[index,:], t, tspan)
+        res[i+3] = ChebyshevEval(body_coeffs.vz_coeffs[index,:], t, tspan)
     end
 
     return res
