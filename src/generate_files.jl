@@ -36,19 +36,27 @@ const body_name_list =
 const body_ID_list =
     [1, 2, 3, 4, 5, 6, 7, 8, 9, 301, 10, 2147483647, 2147483647, 2147483647, 2147483647]
 
+"""
+*generate_files*
+
+Genera los ficheros necesarios para el uso del software
+
+# Argumentos de entrada
+ - `path::String`: Ruta en la que se quieren guardar los ficheros
+"""
 function generate_files(path="./"::String)
     ####################
     # Download kernels #
     ####################
     # LSK Kernel
     println("Downloading LSK kernel...")
-    download(LSK, "naif0012.tls")
+    download(LSK, (path * "naif0012.tls"))
     println("LSK Kernel successfully downloaded.")
     # Load leap seconds kernel
-    furnsh("naif0012.tls")
+    furnsh((path * "naif0012.tls"))
     # SPK Kernel
     println("Downloading SPK kernel...")
-    download(SPK, "de440.bsp")
+    download(SPK, (path * "de440.bsp"))
     println("SPK Kernel successfully downloaded.")
 
     ###################
@@ -57,7 +65,7 @@ function generate_files(path="./"::String)
 
     # Download Header
     println("Downloading Header file...")
-    download((files_path * header_name), header_name)
+    download((files_path * header_name), (path * header_name))
     println("Header file successfully downloaded.")
 
     println("Reading " * header_name)
@@ -69,7 +77,7 @@ function generate_files(path="./"::String)
     body_data = Vector{BodyStruct}(undef, n_bodies)
 
     # Abrimos el fichero
-    header = open(header_name, "r")
+    header = open((path * header_name), "r")
     header_str = read(header, String)
     # Cerramos el fichero
     close(header)
@@ -118,7 +126,7 @@ function generate_files(path="./"::String)
     stringdata = JSON.json(header_data)
 
     # write the file with the stringdata variable information
-    open("header_data.json", "w") do f
+    open((path * "header_data.json"), "w") do f
             write(f, stringdata)
     end
 
@@ -126,7 +134,7 @@ function generate_files(path="./"::String)
 
     # Eliminamos el fichero
     println("Removing " * header_name * " file...")
-    rm(header_name)
+    rm((path * header_name))
     println(header_name * " file successfully removed.")
 
     #####################
@@ -138,13 +146,13 @@ function generate_files(path="./"::String)
     for file_name in file_list
         # Download Chebyshev coefficients
         println("Downloading " * file_name * " file...")
-        download((files_path * file_name), file_name)
+        download((files_path * file_name), (path * file_name))
         println(file_name * " file successfully downloaded.")
 
         println("Reading " * file_name * " file...")
 
         # Abrimos el fichero
-        f = open(file_name, "r")
+        f = open((path * file_name), "r")
         # Guardamos el contenido en un String
         str = read(f, String)
         # Cerramos el fichero
@@ -187,7 +195,7 @@ function generate_files(path="./"::String)
 
         # Eliminamos el fichero
         println("Removing " * file_name * " file...")
-        rm(file_name)
+        rm((path * file_name))
         println(file_name * " file successfully removed.")
 
     end
@@ -195,7 +203,7 @@ function generate_files(path="./"::String)
     println("Generating time.csv file...")
 
     # Generamos el CSV
-    CSV.write("time.csv", time_df)
+    CSV.write((path * "time.csv"), time_df)
 
     println("time.csv file successfully generated.")
 
