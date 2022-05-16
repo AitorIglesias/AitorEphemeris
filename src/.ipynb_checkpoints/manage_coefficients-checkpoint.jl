@@ -208,10 +208,10 @@ function get_table_from_file(
 
     # Índices de los polinomios
     i0 = findlast(x -> x <= t0, coeffs_info_vec[index]["timeIntervals"])
-    iEnd = findlast(x -> x <= tEnd, coeffs_info_vec[index]["timeIntervals"])+1
+    iEnd = findlast(x -> x <= tEnd, coeffs_info_vec[index]["timeIntervals"])
     # Linea de los polinomios deseado
-    line += (i0-1) * div(coeffs_info_vec[index]["numberOfCoeffs"], 8) * 6
-    last_line = line + (iEnd-i0) * div(coeffs_info_vec[index]["numberOfCoeffs"], 8) * 6 - 1
+    line += i0 * div(coeffs_info_vec[index]["numberOfCoeffs"], 8) * 6
+    last_line = line + ((iEnd-i0)+1) * div(coeffs_info_vec[index]["numberOfCoeffs"], 8) * 6 - 1
 
     # Construimos el objeto de información
     ci = CoefficientsInfo(
@@ -219,7 +219,7 @@ function get_table_from_file(
         coeffs_info_vec[index]["bodyName"],
         (iEnd-i0)+1,
         coeffs_info_vec[index]["numberOfCoeffs"],
-        coeffs_info_vec[index]["timeIntervals"][i0:iEnd])
+        coeffs_info_vec[index]["timeIntervals"][i0:iEnd+1])
     
 
     return ci, coeffs_df[line:last_line,:]
