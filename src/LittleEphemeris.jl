@@ -1,4 +1,4 @@
-module AitorEphemeris
+module LittleEphemeris
 
 using JSON
 using CSV

@@ -1,6 +1,5 @@
 export generate_coeffs
 
-
 const default_header_file_path = "data/header_data.json"
 const default_time_file_path = "data/time.csv"
 
