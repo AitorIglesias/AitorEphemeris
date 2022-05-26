@@ -9,3 +9,11 @@ CSV = "336ed68f-0bac-5ca0-87d4-7b16caf5d00b"
 DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
 SPICE = "5bab7191-041a-5c2e-a744-024b9c3a5062"
 FFTW = "7a1cc6ca-52ef-59f5-83cd-3a7055c09341"
+
+[compat]
+julia = "1.6"
+JSON = "0"
+CSV = "0"
+DataFrames = "1"
+SPICE = "0"
+FFTW = "1"
