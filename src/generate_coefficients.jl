@@ -157,6 +157,7 @@ Genera los coeficientes de Chebysev entre dos fechas dadas para un cuerpo especi
  columnas como coeficientes.
 
 @precondition: initial_date < final_date
+
 @precondition: El fichero de intervalos de tiempo debe ser un fichero csv de una única columna.
 """
 function generate_coeffs(

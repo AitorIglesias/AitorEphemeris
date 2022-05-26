@@ -67,7 +67,9 @@ Genera dos ficheros, un fichero CSV con los coeficientes y uno JSON con los dato
  - `time_file_path::String`: Ruta del fichero de intervalos de tiempo.
 
 @precondition: La longitud del vector de cuerpos debe ser igual a la longitud del vector de intervalos de tiempos.
+
 @precondition: El fichero de información (header) debe ser un fichero JSON cun un formato especifico.
+
 @precondition: El fichero de intervalos de tiempo debe ser un fichero csv de una única columna.
 """
 function create_coeffs_file(
@@ -150,6 +152,7 @@ Devuelve una tabla con los coeficientes del cuerpo especificado en el intervalo 
 
 
 @precondition: El fichero de información debe ser un fichero JSON con un formato especifico.
+
 @precondition: El fichero de coeficientes debe ser un fichero csv con un formato especifico.
 """
 function get_table_from_file(
