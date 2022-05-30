@@ -63,9 +63,9 @@ Devuelve un vector de fechas (en formato ET) contenidas en el fichero dado. Esta
 polinomios de Chebyshev.
 
 # Argumentos de entrada:
- - `initial_date::Float64`: fecha inicial, perteneciente al primer intervalo (en formato ET).
- - `final_date::Float64`: fecha final, perteneciente al último intervalo (en formato ET).
- - `file_path=::String`: Ruta del fichero de fechas.
+ - `initial_date::Float64`: Fecha inicial, perteneciente al primer intervalo (en formato ET).
+ - `final_date::Float64`: Fecha final, perteneciente al último intervalo (en formato ET).
+ - `file_path::String`: Ruta del fichero de fechas.
 
 # Argumentos de salida:
  - `time_vec::Vector{Float64}`: Vector de fechas (en formato ET).

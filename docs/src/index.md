@@ -4,21 +4,12 @@ LittleEfemeris es un paquete resultante de un Trabajo de Fin de Grado de Ingenie
 
 ## Instalación
 
-Actualmente el paquete LittleEphemeris.jl no ha terminado el proceso de registro en Julia por lo que para poder utilizar este, hay que clonar el directorio de GitHub.
-
-```shell
-git clone https://github.com/AitorIglesias/LittleEphemeris.jl.git
-```
-
-Tras clonar el directorio se instala de la siguiente manera:
-
 ```julia
 julia> using Pkg
-julia> cd("LittleEphemeris")
-pkg> activate .
+julia> Pkg.add("LittleEphemeris")
 ```
 
-# Ficheros necesarios
+## Ficheros necesarios
 
 Para que este paquete requiere ciertos archivos para su funcionamiento estos ficheros son:
 
