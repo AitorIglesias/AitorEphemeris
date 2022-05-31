@@ -3,8 +3,6 @@ Paquete resultante del Trabajo de Fin de Grado de Ingeniería Informática. Este
 
 ## Instalación
 
-## Instalación
-
 ```julia
 julia> using Pkg
 julia> Pkg.add("LittleEphemeris")
