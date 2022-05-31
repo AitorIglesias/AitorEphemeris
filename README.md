@@ -8,7 +8,7 @@ julia> using Pkg
 julia> Pkg.add("LittleEphemeris")
 ```
 
-# Ficheros necesarios
+## Ficheros necesarios
 
 Para que este paquete requiere ciertos archivos para su funcionamiento estos ficheros son:
 
