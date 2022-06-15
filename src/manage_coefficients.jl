@@ -1,6 +1,5 @@
 export create_coeffs_file
 export generate_subfile
-export add_coeffs
 export eval_coeffs_file
 
 struct CoefficientsInfo
@@ -55,7 +54,7 @@ end
 """
 *create_coeffs_file*
 
-Genera dos ficheros, un fichero CSV con los coeficientes y uno JSON con los datos de coefficients
+Genera dos ficheros, un fichero CSV con los coeficientes y uno JSON con los datos de los coeficientes
 
 # Argumentos de entrada
  - `coeffs_info_file_path::String`: Ruta del fichero de información que se quiere crear.
@@ -68,9 +67,9 @@ Genera dos ficheros, un fichero CSV con los coeficientes y uno JSON con los dato
 
 @precondition: La longitud del vector de cuerpos debe ser igual a la longitud del vector de intervalos de tiempos.
 
-@precondition: El fichero de información (header) debe ser un fichero JSON cun un formato especifico.
+@precondition: El fichero de información (header) debe ser un fichero JSON con un formato específico.
 
-@precondition: El fichero de intervalos de tiempo debe ser un fichero csv de una única columna.
+@precondition: El fichero de intervalos de tiempo debe ser un fichero CSV de una única columna.
 """
 function create_coeffs_file(
     coeffs_info_file_path::String, coeffs_file_path::String,
@@ -373,23 +372,23 @@ end
 """
 *eval_coeffs_file*
 
-Evalua los coeficientes que se encuentran en un fichero especificado en los intervalos de tiempo especificados.
+Evalúa los coeficientes que se encuentran en un fichero especificado en los intervalos de tiempo especificados.
 
 # Argumentos de entrada
  - `coeffs_info_file_path::String`: Ruta del fichero de información.
  - `coeffs_file_path::String`: Fichero de coeficientes.
- - `body::Union{Int, String}`: Cuerpo del que se quieren evaluar los cooeficientes.
+ - `body::Union{Int, String}`: Cuerpo del que se quieren evaluar los coeficientes.
  - `time_vector::Vector{Float64}`: Vector de instantes en los que se quiere evaluar los coeficientes.
 
 # Argumentos de salida
- - `x::Vector{Float64}`: Vector de coordenas en el eje x.
- - `y::Vector{Float64}`: Vector de coordenas en el eje y.
- - `z::Vector{Float64}`: Vector de coordenas en el eje z.
+ - `x::Vector{Float64}`: Vector de posiciones en el eje x.
+ - `y::Vector{Float64}`: Vector de posiciones en el eje y.
+ - `z::Vector{Float64}`: Vector de posiciones en el eje z.
  - `vx::Vector{Float64}`: Vector de velocidad en el eje x.
  - `vy::Vector{Float64}`: Vector de velocidad en el eje y.
  - `vz::Vector{Float64}`: Vector de velocidad en el eje z.
 
-@precondition: el fichero de información debe ser un fichero JSON y tiene que estar en un formato específico.
+@precondition: El fichero de información debe ser un fichero JSON y tiene que estar en un formato específico.
 """
 function eval_coeffs_file(
     coeffs_info_file_path::String, coeffs_file_path::String,

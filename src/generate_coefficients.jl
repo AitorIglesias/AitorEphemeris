@@ -132,22 +132,22 @@ end
 """
 *generate_coeffs*
 
-Genera los coeficientes de Chebysev entre dos fechas dadas para un cuerpo especificado.
+Genera los coeficientes de Chebyshev entre dos fechas dadas para un cuerpo especificado.
 
 # Argumentos de Entrada:
-- `initial_date::Float64`: fecha inicial, perteneciente al primer intervalo (en formato ET).
-- `final_date::Float64`: fecha final, perteneciente al último intervalo (en formato ET).
- - `coeffs_info::Tuple{Int, Int, Int}`: Una tupla con la ID del cuerpo del que queremos obtener las efemerides, número de
- coeficientes que queremos en nuestros polinomios y número de polynomios que queremos por intervalo.
+- `initial_date::Float64`: Fecha inicial, perteneciente al primer intervalo (en formato ET).
+- `final_date::Float64`: Fecha final, perteneciente al último intervalo (en formato ET).
+ - `coeffs_info::Tuple{Int, Int, Int}`: Una tupla con la ID del cuerpo del que queremos obtener las Efemérides, número de
+ coeficientes que queremos en nuestros polinomios y número de polinomios que queremos por intervalo.
  - `time_file_path::String`: Ruta del fichero de fechas.
 
 # Argumentos de salida:
  - `time_vec::Vector{Float64}`: Vector de fechas (en formato ET).
- - `x::Matrix{Float64}`: Matriz de polinomios interpoladores de las coordenadas del eje x. Cada fila es un polinomio, hay tantas
+ - `x::Matrix{Float64}`: Matriz de polinomios interpoladores de las posiciones del eje x. Cada fila es un polinomio, hay tantas
  columnas como coeficientes.
- - `y::Matrix{Float64}`: Matriz de polinomios interpoladores de las coordenadas del eje y. Cada fila es un polinomio, hay tantas
+ - `y::Matrix{Float64}`: Matriz de polinomios interpoladores de las posiciones del eje y. Cada fila es un polinomio, hay tantas
  columnas como coeficientes.
- - `z::Matrix{Float64}`: Matriz de polinomios interpoladores de las coordenadas del eje z. Cada fila es un polinomio, hay tantas
+ - `z::Matrix{Float64}`: Matriz de polinomios interpoladores de las posiciones del eje z. Cada fila es un polinomio, hay tantas
  columnas como coeficientes.
  - `vx::Matrix{Float64}`: Matriz de polinomios interpoladores de la velocidad en el eje x. Cada fila es un polinomio, hay tantas
  columnas como coeficientes.
@@ -158,7 +158,7 @@ Genera los coeficientes de Chebysev entre dos fechas dadas para un cuerpo especi
 
 @precondition: initial_date < final_date
 
-@precondition: El fichero de intervalos de tiempo debe ser un fichero csv de una única columna.
+@precondition: El fichero de intervalos de tiempo debe ser un fichero CSV de una única columna.
 """
 function generate_coeffs(
     initial_date::Float64, final_date::Float64, coeffs_info::Tuple{Int, Int, Int}, 

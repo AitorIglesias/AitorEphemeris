@@ -10,9 +10,9 @@ Estructura de coeficientes de un cuerpo
  - `numberOfPolynomials::Int`: Numero de polinomios.
  - `numberOfCoeffs::Int`: Número de coeficientes en cada polinomio.
  - `timeIntervals::Vector{FloatType}`: Vector de intervalos de tiempo.
- - `x_coeffs::Matrix{FloatType}`: Matriz de coeficientes de las coordenadas en el eje x.
- - `y_coeffs::Matrix{FloatType}`: Matriz de coeficientes de las coordenadas en el eje y.
- - `z_coeffs::Matrix{FloatType}`: Matriz de coeficientes de las coordenadas en el eje z.
+ - `x_coeffs::Matrix{FloatType}`: Matriz de coeficientes de las posiciones en el eje x.
+ - `y_coeffs::Matrix{FloatType}`: Matriz de coeficientes de las posiciones en el eje y.
+ - `z_coeffs::Matrix{FloatType}`: Matriz de coeficientes de las posiciones en el eje z.
  - `vx_coeffs::Matrix{FloatType}`: Matriz de coeficientes de la velocidad en el eje x.
  - `vy_coeffs::Matrix{FloatType}`: Matriz de coeficientes de la velocidad en el eje y.
  - `vz_coeffs::Matrix{FloatType}`: Matriz de coeficientes de la velocidad en el eje z.
@@ -102,11 +102,11 @@ end
 Metodo del objeto que permite calcular las coordenadas y/o las velocidades del cuerpo especificado en el instante de tiempo especificado.
 
 # Argumentos de entrada
- - `t::Float64`: Instante de cuerpo en el que se quieren conocer las coordenadas y/o velocidades del cuerpo.
- - `code::Int`: Integer que indica los parametros de salida. Por defecto code = 3.
-    - code = 1: Devuelve el vector de las coordenadas.
-    - code = 2: Devuelve el vector de las velocidades.
-    - code = 3: Devuelve el vector de las coordenadas y las velocidades.
+ - `t::Float64`: Instante de cuerpo en el que se quieren conocer las coordenadas de posición y/o velocidad del cuerpo.
+ - `code::Int`: Integer que indica los parámetros de salida. Por defecto code = 3.
+    - code = 1: Devuelve el vector de las coordenadas de la posición.
+    - code = 2: Devuelve el vector de las coordenadas de la velocidad.
+    - code = 3: Devuelve el vector de las coordenadas de la posición y la velocidad.
 
 # Argumentos de salida
  - `res::Vector{Float64}`: Vector con las coordenadas y/o las velocidades del cuerpo especificado en el instante de tiempo especificado.

@@ -39,7 +39,7 @@ const body_ID_list =
 """
 *generate_files*
 
-Genera los ficheros necesarios para el uso del software
+Genera los ficheros necesarios para el uso de algunas funciones del paquete.
 
 # Argumentos de entrada
  - `path::String`: Ruta en la que se quieren guardar los ficheros
